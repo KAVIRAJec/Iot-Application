@@ -32,7 +32,7 @@ const io = new Server(server, {
 const corsOptions = {
     origin: (origin, callback) => {
         // Allow requests from specific origins or all origins
-        if (!origin || origin === 'http://localhost:30080' || origin === 'http://10.70.12.76:30080' || origin === 'http://10.30.10.27:30080') {
+        if (!origin || origin === '*' || origin === 'http://localhost:30080' || origin === 'http://10.70.12.76:30080' || origin === 'http://10.30.10.27:30080') {
             callback(null, true);
         } else {
             callback(new Error('Not allowed by CORS'));
