@@ -1,13 +1,4 @@
 {
-  "name": "iot-application-backend",
-  "version": "1.0.0",
-  "description": "Backend for Full Stack IoT Web Application",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "build": "echo 'No build step required'",
-    "postinstall": "prisma generate"
-  },
   "dependencies": {
     "@prisma/client": "^6.4.1",
     "bcrypt": "^5.1.1",
@@ -25,9 +16,5 @@
   },
   "devDependencies": {
     "prisma": "^6.4.1"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "license": "MIT"
+  }
 }
