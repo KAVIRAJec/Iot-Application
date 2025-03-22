@@ -1,8 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { getToken, saveToken, removeToken } from '../utils/auth';
-import getApi from "@/utils/api";
-
-const api = getApi()
+import api from '../utils/api';
 
 const AuthContext = createContext();
 

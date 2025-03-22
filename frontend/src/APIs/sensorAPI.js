@@ -1,6 +1,5 @@
-import getApi from "@/utils/api";
+import api from "@/utils/api";
 
-const api = getApi()
 // create sensor
 export const createSensor = async (projectId, data) => {
   try {

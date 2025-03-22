@@ -1,6 +1,5 @@
-import getApi from "@/utils/api";
+import api from "@/utils/api";
 
-const api = getApi()
 // Create a new project
 export const createProjects = async (data) => {
   try {

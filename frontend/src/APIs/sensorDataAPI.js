@@ -1,6 +1,5 @@
-import getApi from "@/utils/api";
+import api from "@/utils/api";
 
-const api = getApi()
 // Send sensor data (For input switch)
 export const sendSensorData = async (projectId, sensorId, data) => {
     try {

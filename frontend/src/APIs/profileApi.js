@@ -1,8 +1,7 @@
-import getApi from "@/utils/api";
+import api from "@/utils/api";
 
 export const getProjectsByUserId = async (userId) => {
   try {
-    const api = getApi()
     const response = await api.post(`/api/projects/getByUser/${userId}`, { id: userId });
     return response.data.data;
   } catch (error) {
