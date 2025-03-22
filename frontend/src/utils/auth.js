@@ -1,3 +1,5 @@
+import { Content } from "@radix-ui/react-dialog";
+
 export const saveToken = (token) => {
   localStorage.setItem('jwtToken', token);
 };
@@ -16,5 +18,8 @@ export const isAuthenticated = () => {
 
 export const getAuthHeader = () => {
   const token = getToken();
-  return token ? { Authorization: `Bearer ${token}` } : {};
+  return token ? { 
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${token}` 
+  } : {};
 };
