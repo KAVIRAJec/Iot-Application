@@ -15,6 +15,8 @@ COPY . .
 
 # Set environment variables from build arguments
 ARG VITE_APP_BACKEND_URL=${VITE_APP_BACKEND_URL}
+ARG VITE_APP_VM=${VITE_APP_VM}
+ARG VITE_APP_SERVER=${VITE_APP_SERVER}
 
 # Build the application
 RUN npm run build -- --target=esnext
