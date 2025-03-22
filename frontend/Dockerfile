@@ -17,7 +17,7 @@ COPY . .
 ARG VITE_APP_BACKEND_URL=${VITE_APP_BACKEND_URL}
 
 # Build the application
-RUN npm run build
+RUN npm run build -- --target=esnext
 
 # Use an official Nginx image to serve the frontend
 FROM nginx:alpine
