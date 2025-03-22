@@ -31,7 +31,9 @@ jobs:
       - name: Build and Push Frontend Image
         env:
           VITE_APP_BACKEND_URL: ${{ secrets.VITE_APP_BACKEND_URL }}
+          VITE_APP_VM: ${{ secrets.VITE_APP_VM }}
+          VITE_APP_SERVER: ${{ secrets.VITE_APP_SERVER }}
         run: |
-          docker build --build-arg VITE_APP_BACKEND_URL=$VITE_APP_BACKEND_URL -t ${{ secrets.DOCKER_USERNAME }}/iot-frontend:latest -f frontend/Dockerfile ./frontend
+          docker build --build-arg VITE_APP_BACKEND_URL=$VITE_APP_BACKEND_URL --build-arg VITE_APP_VM=$VITE_APP_VM --build-arg VITE_APP_SERVER=$VITE_APP_SERVER -t ${{ secrets.DOCKER_USERNAME }}/iot-frontend:latest -f frontend/Dockerfile ./frontend
           docker push ${{ secrets.DOCKER_USERNAME }}/iot-frontend:latest
     

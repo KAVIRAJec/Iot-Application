@@ -15,7 +15,6 @@ COPY . .
 
 # Set environment variables from build arguments
 ARG VITE_APP_BACKEND_URL=${VITE_APP_BACKEND_URL}
-ENV VITE_APP_BACKEND_URL=${VITE_APP_BACKEND_URL}
 
 # Build the application
 RUN npm run build

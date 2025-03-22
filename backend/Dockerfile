@@ -17,9 +17,6 @@ COPY . .
 RUN npx prisma generate
 
 # Set environment variables from build arguments
-ARG JWT_SECRET=${JWT_SECRET}
-ARG DATABASE_URL=${DATABASE_URL}
-
 ENV JWT_SECRET=${JWT_SECRET}
 ENV DATABASE_URL=${DATABASE_URL}
 
