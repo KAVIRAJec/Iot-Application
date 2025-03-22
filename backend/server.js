@@ -13,7 +13,7 @@ const userRoutes = require('./routes/userRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 const sensorRoutes = require('./routes/sensorRoutes');
 
-const formatResponse = require('./utils/helper');
+const healthCheck = require('./controllers/healthCheck');
 
 const app = express();
 
@@ -44,6 +44,7 @@ const db_test = main();
 app.use('/api', userRoutes);
 app.use('/api', projectRoutes);
 app.use('/api', sensorRoutes(io));
+app.use('/health', healthCheck);
 
 io.on('connection', (socket) => {
     console.log('A client connected:', socket.id);

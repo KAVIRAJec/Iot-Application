@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { getAuthHeader } from './auth';
+import getBackendUrl from './checkBackend';
 
-const API_URL = import.meta.env.VITE_APP_BACKEND_URL;
+const API_URL = await getBackendUrl();
 // console.log("API URL",API_URL);
 
 const api = axios.create({
