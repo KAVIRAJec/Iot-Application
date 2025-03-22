@@ -2,27 +2,45 @@ import axios from 'axios';
 import { getAuthHeader } from './auth';
 import getBackendUrl from './checkBackend';
 
-const getApiInstance = async () => {
-  const API_URL = await getBackendUrl();
+let api = null;
 
-  return axios.create({
-    baseURL: API_URL,
-  });
+const initializeApi = async () => {
+  try {
+    const API_URL = await getBackendUrl();
+    console.log('Using backend URL:', API_URL);
+
+    // Create the axios instance with the resolved API_URL
+    api = axios.create({
+      baseURL: API_URL,
+    });
+
+    // Add interceptors
+    api.interceptors.request.use(
+      (config) => {
+        const headers = getAuthHeader();
+        if (headers) {
+          config.headers = { ...config.headers, ...headers };
+        }
+        return config;
+      },
+      (error) => {
+        return Promise.reject(error);
+      }
+    );
+  } catch (error) {
+    console.error('Failed to initialize API:', error);
+  }
 };
 
-const api = await getApiInstance();
+// Immediately initialize the API when this file is imported
+initializeApi();
 
-api.interceptors.request.use(
-  (config) => {
-    const headers = getAuthHeader();
-    if (headers) {
-      config.headers = { ...config.headers, ...headers };
-    }
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
+// Export the axios instance directly
+const getApi = () => {
+  if (!api) {
+    throw new Error('API instance is not initialized yet. Please wait for initialization.');
   }
-);
+  return api;
+};
 
-export default api;
+export default getApi;

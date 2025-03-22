@@ -1,5 +1,6 @@
-import api from "./api";
+import getApi from "@/utils/api";
 
+const api = getApi()
 export const getStatus = async (userId) => {
   try {
     const response = await api.post(`/api/users/me`, { id: userId });
