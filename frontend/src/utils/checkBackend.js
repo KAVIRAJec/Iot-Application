@@ -4,10 +4,10 @@ const checkBackend = async (urls) => {
   for (const url of urls) {
     try {
       await axios.get(`${url}/health`, { timeout: 3000 });
-      console.log(`Backend is reachable at: ${url}`);
+      // console.log(`Backend is reachable at: ${url}`);
       return url;
     } catch (error) {
-      console.warn(`Backend not reachable at: ${url}`);
+      // console.warn(`Backend not reachable at: ${url}`);
     }
   }
   throw new Error('No backend URL is reachable.');
