@@ -1,7 +1,11 @@
 import { io } from "socket.io-client";
 import getBackendUrl from "./checkBackend";
 
-const SOCKET_SERVER_URL = getBackendUrl()
+const getSocketServerUrl = async () => {
+    return await getBackendUrl();
+};
+
+const SOCKET_SERVER_URL = await getSocketServerUrl();
 
 const socket = io(SOCKET_SERVER_URL, {
     autoConnect: true,

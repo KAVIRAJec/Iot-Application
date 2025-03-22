@@ -2,12 +2,15 @@ import axios from 'axios';
 import { getAuthHeader } from './auth';
 import getBackendUrl from './checkBackend';
 
-const API_URL = await getBackendUrl();
-// console.log("API URL",API_URL);
+const getApiInstance = async () => {
+  const API_URL = await getBackendUrl();
 
-const api = axios.create({
-  baseURL: API_URL,
-});
+  return axios.create({
+    baseURL: API_URL,
+  });
+};
+
+const api = await getApiInstance();
 
 api.interceptors.request.use(
   (config) => {
