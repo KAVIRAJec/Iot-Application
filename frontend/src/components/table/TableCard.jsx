@@ -114,26 +114,26 @@ const TableCard = ({ sensorData, sensors, handleDelete }) => {
       </div>
       <Table allowResize aria-label="Live Sensor Data" className="rounded-lg shadow-xl w-full min-w-[600px]">
         <Table.Header className="bg-primary w-full">
-          {columns.map((column) => (
-            <Table.Column key={column.key} isResizable isRowHeader={column.isRowHeader} className={`text-white ${column.allowsSorting ? "cursor-pointer" : ""}`}>
+          {columns?.map((column) => (
+            <Table.Column key={column?.key} isResizable isRowHeader={column?.isRowHeader} className={`text-white ${column?.allowsSorting ? "cursor-pointer" : ""}`}>
               <div
-                onClick={() => column.allowsSorting && handleSort(column.key)}
-                className={`cursor-pointer flex justify-between items-center ${column.allowsSorting ? "hover:opacity-70" : ""}`}
+                onClick={() => column?.allowsSorting && handleSort(column?.key)}
+                className={`cursor-pointer flex justify-between items-center ${column?.allowsSorting ? "hover:opacity-70" : ""}`}
               >
-                {column.label} 
-                {sortColumn === column.key && (sortDirection === "ascending" ? "▲" : "▼")}
+                {column?.label} 
+                {sortColumn === column?.key && (sortDirection === "ascending" ? "▲" : "▼")}
               </div>
             </Table.Column>
           ))}
         </Table.Header>
         <Table.Body items={paginatedData}>
           {(item) => (
-            <Table.Row key={item.id} className="hover:bg-gray-200">
-              <Table.Cell>{item.sensorName}</Table.Cell>
-              <Table.Cell>{item.sensorType}</Table.Cell>
-              <Table.Cell>{item.value}</Table.Cell>
-              <Table.Cell>{item.timestamp}</Table.Cell>
-              <Table.Cell>{item.status}</Table.Cell>
+            <Table.Row key={item?.id} className="hover:bg-gray-200">
+              <Table.Cell>{item?.sensorName}</Table.Cell>
+              <Table.Cell>{item?.sensorType}</Table.Cell>
+              <Table.Cell>{item?.value}</Table.Cell>
+              <Table.Cell>{item?.timestamp}</Table.Cell>
+              <Table.Cell>{item?.status}</Table.Cell>
               <Table.Cell>
                 <Trash2
                   className="cursor-pointer text-red-500 hover:text-red-700 transition-all"
