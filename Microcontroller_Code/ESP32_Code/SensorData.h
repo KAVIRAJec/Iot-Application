@@ -6,6 +6,9 @@
 
 const char* authToken = "Bearer YOUR_AUTH_TOKEN";
 
+//Function declaration
+int getLatestSensorData(String projectName, String sensorName, int userId);
+void sendSensorData(String projectName, String sensorName, int userId, int value);
 /**
  * Fetches the latest sensor data from the API
  * @param sensorName The sensor name
